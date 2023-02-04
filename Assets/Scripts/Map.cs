@@ -35,7 +35,7 @@ public class Map : MonoBehaviour
     private void Start()
     {
         Folders = new();
-        Grid = new(_values, _values.GridOrigin);
+        Grid = new(_values, _values.GridOrigin, this);
         PopulateMap(_maxFolders);
         Paths = CreatePaths();
     }
@@ -49,7 +49,7 @@ public class Map : MonoBehaviour
 
         HumanCell = Grid.cells[_startCellPosition.x, _startCellPosition.y];
 
-        Folder previousFolder = Instantiate(_values.folderPrefab, transform);
+        Folder previousFolder = Instantiate(_values.humanFolderPrefab, transform);
         previousFolder.transform.position = transform.InverseTransformPoint(HumanCell.WorldPosition);
         previousFolder.cell = HumanCell;
         previousFolder.cell.occupant = previousFolder;
@@ -58,7 +58,13 @@ public class Map : MonoBehaviour
 
         for (int i = 0; i < foldersToCreate; i++)
         {
-            Cell newFolderCell = PickNewCell(previousFolder.cell);
+            Vector2Int distanceRange = _childDistanceRange;
+            if (previousFolder.cell == HumanCell)
+            {
+                distanceRange.x = distanceRange.x < _values.HumanCellRadius ? _values.HumanCellRadius : distanceRange.x;
+                distanceRange.y = distanceRange.y < _values.HumanCellRadius ? _values.HumanCellRadius : distanceRange.y;
+            }
+            Cell newFolderCell = PickNewCell(previousFolder.cell, distanceRange);
             //Folder newFolder = new(newFolderCell);
             Folder newFolder = Instantiate(_values.folderPrefab, transform);
             newFolder.transform.position = transform.InverseTransformPoint(newFolderCell.WorldPosition);
@@ -134,9 +140,9 @@ public class Map : MonoBehaviour
         return paths.ToArray();
     }
 
-    private Cell PickNewCell(Cell previousCell)
+    private Cell PickNewCell(Cell previousCell, Vector2Int distanceRange)
     {
-        return GetRandomCell(GetPossibleCellsFromDistanceRange(Grid, previousCell, _childDistanceRange));
+        return GetRandomCell(GetPossibleCellsFromDistanceRange(Grid, previousCell, distanceRange));
     }
 
     private Cell[] GetPossibleCellsFromDistanceRange(Grid grid, Cell startCell, Vector2Int distanceRange)

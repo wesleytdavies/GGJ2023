@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grid
 {
     public ValuesSO Values { get; private set; }
+    public Map Map { get; private set; }
 
     /// <summary>
     /// Grid origin is bottom left.
@@ -12,10 +13,11 @@ public class Grid
     public Vector3 Origin { get; private set; }
     public Cell[,] cells;
 
-    public Grid(ValuesSO values, Vector3 origin)
+    public Grid(ValuesSO values, Vector3 origin, Map map)
     {
         Values = values;
         Origin = origin;
+        Map = map;
 
         cells = new Cell[Values.CellCount.x, Values.CellCount.y];
         for (int i = 0; i < Values.CellCount.x; i++)

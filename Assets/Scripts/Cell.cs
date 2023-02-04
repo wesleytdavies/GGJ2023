@@ -22,7 +22,7 @@ public class Cell
 
     public bool CanBeOccupied
     {
-        get => !Array.Exists(_grid.GetCellsInRadius(this, _grid.Values.OccupiedCellRadius), x => x.IsOccupied);
+        get => !Array.Exists(_grid.GetCellsInRadius(this, _grid.Values.OccupiedCellRadius), x => x.IsOccupied) && !Array.Exists(_grid.GetCellsInRadius(_grid.Map.HumanCell, _grid.Values.HumanCellRadius - 1), x => x == this);
     }
 
     public Cell(Grid grid, Vector2Int position)
