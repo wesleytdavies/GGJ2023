@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 272
     height: 1299
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 52
+  controlID: 18
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 53
+  controlID: 103
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 669
     width: 1506
     height: 630
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -404,23 +404,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b8690000
       m_LastClickedID: 0
-      m_ExpandedIDs: 36d4feff1ed5feff1ee4ffff92f5ffff0af9ffffbcfaffff985d0000a25d0000ac5d0000ae5d0000c25d0000ee5d0000525e0000725e0000
+      m_ExpandedIDs: 1ee5ffffbae6ffff56e7ffffbaeaffff80edffffa8eeffff94efffff3cf2ffff28f3ffffeefaffff765d0000b8620000c2620000ce6200000e63000088630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Map
-        m_OriginalName: Map
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -7558
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -688,9 +688,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 46.539364, y: 23.933207, z: -3.7737749}
+    m_Target: {x: -1.2771757, y: -11.877594, z: -3.4302168}
     speed: 2
-    m_Value: {x: 46.539364, y: 23.933207, z: -3.7737749}
+    m_Value: {x: -1.2771757, y: -11.877594, z: -3.4302168}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -737,13 +737,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.012596988, y: 0.2968019, z: -0.010680955, w: -0.95480067}
+    m_Target: {x: 0.32553023, y: -0.06165904, z: -0.028135108, w: -0.94311213}
     speed: 2
-    m_Value: {x: -0.012612943, y: 0.29536813, z: -0.0106620025, w: -0.9552408}
+    m_Value: {x: 0.32552636, y: -0.061658308, z: -0.028134773, w: -0.94310087}
   m_Size:
-    m_Target: 8.317896
+    m_Target: 13.107623
     speed: 2
-    m_Value: 8.317896
+    m_Value: 13.107623
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -920,22 +920,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Xiao
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Xiao
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\GGJ2023
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa5a0000
-    m_LastClickedID: 23210
-    m_ExpandedIDs: 000000009e5a0000aa5a000000ca9a3b
+    m_SelectedIDs: 245c0000
+    m_LastClickedID: 23588
+    m_ExpandedIDs: 00000000245c0000345c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -963,7 +963,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000245c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
