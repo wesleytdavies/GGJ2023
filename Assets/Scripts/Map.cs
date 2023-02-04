@@ -30,6 +30,7 @@ public class Map : MonoBehaviour
     [SerializeField] private ValuesSO _values;
     private int _rootIndex = 0;
     public GridPath[] Paths { get; private set; }
+    public Cell HumanCell { get; private set; }
 
     private void Start()
     {
@@ -46,11 +47,11 @@ public class Map : MonoBehaviour
 
         //}
 
-        Cell previousCell = Grid.cells[_startCellPosition.x, _startCellPosition.y];
+        HumanCell = Grid.cells[_startCellPosition.x, _startCellPosition.y];
 
         Folder previousFolder = Instantiate(_values.folderPrefab, transform);
-        previousFolder.transform.position = transform.InverseTransformPoint(previousCell.WorldPosition);
-        previousFolder.cell = previousCell;
+        previousFolder.transform.position = transform.InverseTransformPoint(HumanCell.WorldPosition);
+        previousFolder.cell = HumanCell;
         previousFolder.cell.occupant = previousFolder;
         previousFolder.map = this;
         Folders.Add(previousFolder);
