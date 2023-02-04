@@ -49,7 +49,8 @@ public class Map : MonoBehaviour
 
         Cell previousCell = Grid.cells[_startCellPosition.x, _startCellPosition.y];
 
-        Folder previousFolder = Instantiate(_values.folderPrefab, previousCell.WorldPosition, Quaternion.identity);
+        Folder previousFolder = Instantiate(_values.folderPrefab, transform);
+        previousFolder.transform.position = transform.InverseTransformPoint(previousCell.WorldPosition);
         previousFolder.cell = previousCell;
         previousFolder.cell.occupant = previousFolder;
         previousFolder.map = this;
@@ -59,7 +60,8 @@ public class Map : MonoBehaviour
         {
             Cell newFolderCell = PickNewCell(previousFolder.cell);
             //Folder newFolder = new(newFolderCell);
-            Folder newFolder = Instantiate(_values.folderPrefab, newFolderCell.WorldPosition, Quaternion.identity);
+            Folder newFolder = Instantiate(_values.folderPrefab, transform);
+            newFolder.transform.position = transform.InverseTransformPoint(newFolderCell.WorldPosition);
             newFolder.cell = newFolderCell;
             newFolder.cell.occupant = newFolder;
             newFolder.map = this;
@@ -165,6 +167,7 @@ public class Map : MonoBehaviour
                     continue;
                 }
                 //TODO: check if adjacent cells are occupied as well?
+                //3 empty cells around each folder (in any direction: folder 1 2 3)
                 validPossibleCells.Add(grid.cells[i, j]);
             }
         }
