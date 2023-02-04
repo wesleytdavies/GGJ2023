@@ -28,10 +28,14 @@ public class HumanMovement : MonoBehaviour
             index++;
             else
             {
-                GameObject humanScreen = GameObject.Find("HumanScreen");
-                humanScreen.GetComponent<HumanScreen>().SpawnHumanCursor();
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 5f);
             }
         }
+    }
+
+    void OnDestroy()
+    {
+        GameObject humanScreen = GameObject.Find("HumanScreen");
+        humanScreen.GetComponent<HumanScreen>().SpawnHumanCursor();
     }
 }

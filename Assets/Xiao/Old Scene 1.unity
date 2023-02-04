@@ -179,6 +179,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6040021992757817941, guid: 1adad727173c8459888c81c59044c121, type: 3}
+      propertyPath: _values
+      value: 
+      objectReference: {fileID: 11400000, guid: e4039748e76405848abd4fecef461825, type: 2}
+    - target: {fileID: 6040021992757817941, guid: 1adad727173c8459888c81c59044c121, type: 3}
       propertyPath: _startCellPosition.x
       value: 25
       objectReference: {fileID: 0}
