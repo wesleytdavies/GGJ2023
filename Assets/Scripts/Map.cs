@@ -19,7 +19,6 @@ public class Map : MonoBehaviour
     public int MaxChildCount
     {
         get => _maxChildCount;
-        private set => _maxChildCount = value;
     }
     [Tooltip("How many children each folder can have.")]
     [SerializeField] private int _maxChildCount;
@@ -116,17 +115,17 @@ public class Map : MonoBehaviour
             }
         }
 
-        foreach(GridPath path in paths)
-        {
-            if (path.Turns.Length <= 0)
-            {
-                Debug.Log("Start: " + path.ends[0].Position + ", End: " + path.ends[1].Position);
-            }
-            else
-            {
-                Debug.Log("Start: " + path.ends[0].Position + ", End: " + path.ends[1].Position + ", Turn: " + path.Turns[0].Position);
-            }
-        }
+        //foreach(GridPath path in paths)
+        //{
+        //    if (path.Turns.Length <= 0)
+        //    {
+        //        Debug.Log("Start: " + path.ends[0].Position + ", End: " + path.ends[1].Position);
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Start: " + path.ends[0].Position + ", End: " + path.ends[1].Position + ", Turn: " + path.Turns[0].Position);
+        //    }
+        //}
         return paths.ToArray();
     }
 
@@ -166,6 +165,11 @@ public class Map : MonoBehaviour
                 {
                     continue;
                 }
+                if (!grid.cells[i, j].CanBeOccupied)
+                {
+                    continue;
+                }
+
                 //TODO: check if adjacent cells are occupied as well?
                 //3 empty cells around each folder (in any direction: folder 1 2 3)
                 validPossibleCells.Add(grid.cells[i, j]);
