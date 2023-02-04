@@ -106,7 +106,7 @@ public class SC_TopDownController : MonoBehaviour
         targetObject.transform.LookAt(new Vector3(transform.position.x, targetObject.transform.position.y, transform.position.z));*/
 
         //Player rotation
-        transform.LookAt(new Vector3(targetObject.transform.position.x, transform.position.y, targetObject.transform.position.z));
+/*        transform.LookAt(new Vector3(targetObject.transform.position.x, transform.position.y, targetObject.transform.position.z));*/
     }
 
     Vector3 GetAimTargetPos()
