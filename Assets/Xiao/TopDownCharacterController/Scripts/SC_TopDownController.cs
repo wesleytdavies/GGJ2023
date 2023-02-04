@@ -102,8 +102,8 @@ public class SC_TopDownController : MonoBehaviour
         playerCamera.transform.LookAt(transform.position + new Vector3(-offsetVector.y * 2, 0, offsetVector.x * 2));*/
 
         //Aim target position and rotation
-        targetObject.transform.position = GetAimTargetPos();
-        targetObject.transform.LookAt(new Vector3(transform.position.x, targetObject.transform.position.y, transform.position.z));
+/*        targetObject.transform.position = GetAimTargetPos();
+        targetObject.transform.LookAt(new Vector3(transform.position.x, targetObject.transform.position.y, transform.position.z));*/
 
         //Player rotation
         transform.LookAt(new Vector3(targetObject.transform.position.x, transform.position.y, targetObject.transform.position.z));
