@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Values
   m_EditorClassIdentifier: 
   _cellSize: 1
-  _cellCount: {x: 21, y: 21}
-  _gridOrigin: {x: -10, y: -10, z: 0}
+  _cellCount: {x: 51, y: 51}
+  _gridOrigin: {x: -25, y: -25, z: 0}
   folderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
+  _occupiedCellRadius: 0

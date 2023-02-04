@@ -21,7 +21,7 @@ public class HumanScreen : MonoBehaviour
         }
     }
 
-    void SpawnHumanCursor()
+    public void SpawnHumanCursor()
     {
         //Get a random set of path from the GridPath on Map
         int randomNumber = Random.Range(4, 9);

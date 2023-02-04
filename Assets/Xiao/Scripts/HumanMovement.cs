@@ -28,8 +28,9 @@ public class HumanMovement : MonoBehaviour
             index++;
             else
             {
-                transform.position = waypoints[0];
-                index = 0;
+                GameObject humanScreen = GameObject.Find("HumanScreen");
+                humanScreen.GetComponent<HumanScreen>().SpawnHumanCursor();
+                Destroy(this.gameObject);
             }
         }
     }
