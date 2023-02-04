@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HumanMovement : MonoBehaviour
 {
-    public List<Vector2> waypoints;
+    public List<Vector2> waypoints = new();
     public float Speed = 2;
     int index = 0;
 
