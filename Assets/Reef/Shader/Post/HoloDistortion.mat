@@ -26,8 +26,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Damage: 0.1
-    - _EdgeLineIntensity: 1
+    - _Damage: 0.053
+    - _EdgeLineIntensity: 0.375
     m_Colors:
     - _Intensity: {r: 0.001, g: 25, b: 0.01, a: 0.01}
   m_BuildTextureStacks: []
