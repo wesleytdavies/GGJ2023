@@ -30,7 +30,15 @@ public class ValuesSO : ScriptableObject
     [Tooltip("Bottom left of the grid in world space.")]
     [SerializeField] private Vector3 _gridOrigin;
 
+    public Folder humanFolderPrefab;
     public Folder folderPrefab;
+
+    public int HumanCellRadius
+    {
+        get => _humanCellRadius;
+    }
+    [Tooltip("How many cells around the human cell cannot be occupied.")]
+    [SerializeField] private int _humanCellRadius;
 
     public int OccupiedCellRadius
     {

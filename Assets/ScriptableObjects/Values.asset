@@ -15,5 +15,7 @@ MonoBehaviour:
   _cellSize: 1
   _cellCount: {x: 21, y: 21}
   _gridOrigin: {x: -10, y: -10, z: 0}
+  humanFolderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
   folderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
+  _humanCellRadius: 10
   _occupiedCellRadius: 3
