@@ -9,7 +9,7 @@ public class Cell
     public Vector2Int Position { get; private set; }
     public Vector3 WorldPosition
     {
-        get => new(Position.x * _grid.Values.CellSize + _grid.Origin.x, Position.y * _grid.Values.CellSize + _grid.Origin.y);
+        get => new(Position.x * _grid.Values.CellSize + _grid.Origin.x, 0f, Position.y * _grid.Values.CellSize + _grid.Origin.y);
     }
 
     public CellOccupant occupant;
