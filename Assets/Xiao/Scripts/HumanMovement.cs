@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class HumanMovement : MonoBehaviour
 {
-    public List<GameObject> waypoints;
+    public List<Vector2> waypoints = new();
     public float Speed = 2;
     int index = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = waypoints[0].transform.position;
+        transform.position = waypoints[0];
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Vector3 destination = waypoints[index].transform.position;
+        Vector3 destination = waypoints[index];
         Vector3 newpos = Vector3.MoveTowards(transform.position, destination, Speed * Time.deltaTime);
         transform.position = newpos;
 
@@ -28,9 +28,14 @@ public class HumanMovement : MonoBehaviour
             index++;
             else
             {
-                transform.position = waypoints[0].transform.position;
-                index = 0;
+                Destroy(this.gameObject, 5f);
             }
         }
+    }
+
+    void OnDestroy()
+    {
+        GameObject humanScreen = GameObject.Find("HumanScreen");
+        humanScreen.GetComponent<HumanScreen>().SpawnHumanCursor();
     }
 }
