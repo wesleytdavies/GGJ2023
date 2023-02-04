@@ -78,6 +78,8 @@ public class Map : MonoBehaviour
         }
     }
 
+    //TODO: add special radius around human foolder
+
     private GridPath[] CreatePaths()
     {
         List<GridPath> paths = new();
@@ -95,6 +97,7 @@ public class Map : MonoBehaviour
                 {
                     newGridPath = new(folder.cell, child.cell);
                     paths.Add(newGridPath);
+                    child.pathToParent = newGridPath;
                     continue;
                 }
                 int coinFlip = Random.Range(0, 2);
@@ -112,6 +115,7 @@ public class Map : MonoBehaviour
                         break;
                 }
                 newGridPath = new(folder.cell, child.cell, turningCell);
+                child.pathToParent = newGridPath;
                 paths.Add(newGridPath);
             }
         }
