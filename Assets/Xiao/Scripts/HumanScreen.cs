@@ -88,6 +88,7 @@ public class HumanScreen : MonoBehaviour
         }
         for (int j = 0; j < allPathFolders.Count; j++)
         {
+            Debug.Log(allPathFolders[j].pathToParent.ends[0].WorldPosition.x + ", " + allPathFolders[j].pathToParent.ends[0].WorldPosition.z);
             cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[0].WorldPosition.x, allPathFolders[j].pathToParent.ends[0].WorldPosition.z));
             if (allPathFolders[j].pathToParent.Turns.Length > 0)
             {

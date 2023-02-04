@@ -38,14 +38,8 @@ public class HumanMovement : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        Debug.Log("destroyed");
-    }
-
     private IEnumerator DestroyMovement()
     {
-        Debug.Log("Destroying");
         _isDestroying = true;
         yield return new WaitForSeconds(5f);
         GameObject humanScreen = GameObject.Find("Map");
