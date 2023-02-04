@@ -7,6 +7,7 @@ public class HumanMovement : MonoBehaviour
     public List<Vector2> waypoints = new();
     public float Speed = 2;
     int index = 0;
+    private bool _isDestroying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +29,27 @@ public class HumanMovement : MonoBehaviour
             index++;
             else
             {
-                Destroy(this.gameObject, 5f);
+                if (!_isDestroying)
+                {
+                    StartCoroutine(DestroyMovement());
+                }
+                return;
             }
         }
     }
 
     void OnDestroy()
     {
-        GameObject humanScreen = GameObject.Find("HumanScreen");
+        Debug.Log("destroyed");
+    }
+
+    private IEnumerator DestroyMovement()
+    {
+        Debug.Log("Destroying");
+        _isDestroying = true;
+        yield return new WaitForSeconds(5f);
+        GameObject humanScreen = GameObject.Find("Map");
         humanScreen.GetComponent<HumanScreen>().SpawnHumanCursor();
+        Destroy(this.gameObject);
     }
 }
