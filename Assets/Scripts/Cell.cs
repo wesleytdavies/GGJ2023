@@ -29,5 +29,8 @@ public class Cell
     {
         _grid = grid;
         Position = position;
+        Paths = new();
     }
+
+    public List<GridPath> Paths { get; private set; }
 }
