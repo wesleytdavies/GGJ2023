@@ -26,4 +26,33 @@ public class Grid
             }
         }
     }
+
+    public Cell[] GetCellsInRadius(Cell startCell, int radius)
+    {
+        List<Cell> cellsInRadius = new();
+
+        Vector2Int xBounds = new()
+        {
+            x = startCell.Position.x - radius > 0 ? startCell.Position.x - radius : 0,
+            y = startCell.Position.x + radius < Values.CellCount.x - 1 ? startCell.Position.x + radius : Values.CellCount.x - 1
+        };
+        Vector2Int yBounds = new()
+        {
+            x = startCell.Position.y - radius > 0 ? startCell.Position.y - radius : 0,
+            y = startCell.Position.y + radius < Values.CellCount.y - 1 ? startCell.Position.y + radius : Values.CellCount.y - 1
+        };
+
+        for (int i = xBounds.x; i <= xBounds.y; i++)
+        {
+            for (int j = yBounds.x; j <= yBounds.y; j++)
+            {
+                if (Mathf.Abs(i - startCell.Position.x) + Mathf.Abs(j - startCell.Position.y) > radius)
+                {
+                    continue;
+                }
+                cellsInRadius.Add(cells[i, j]);
+            }
+        }
+        return cellsInRadius.ToArray();
+    }
 }

@@ -14,5 +14,5 @@ public class GridPath
         Turns = turns;
     }
 
-    ///TODO: WaypointClass
+    ///TODO: WaypointClass?
 }

@@ -14,8 +14,10 @@ public class Folder : CellOccupant
 
     public GridPath pathToParent;
 
-    [Tooltip("Rank 0 is the main folder.")]
-    public int rank;
+    [SerializeField] private GameObject _folderFill;
+
+    //[Tooltip("Rank 0 is the main folder.")]
+    //public int rank;
 
     public bool CanHaveChild
     {
@@ -25,5 +27,10 @@ public class Folder : CellOccupant
     private void Awake()
     {
         Children = new();
+    }
+
+    private IEnumerator Fill()
+    {
+        yield break;
     }
 }

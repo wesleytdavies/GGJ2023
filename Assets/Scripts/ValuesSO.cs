@@ -31,4 +31,11 @@ public class ValuesSO : ScriptableObject
     [SerializeField] private Vector3 _gridOrigin;
 
     public Folder folderPrefab;
+
+    public int OccupiedCellRadius
+    {
+        get => _occupiedCellRadius;
+    }
+    [Tooltip("How many cells around an occupied cell cannot be occupied.")]
+    [SerializeField] private int _occupiedCellRadius;
 }

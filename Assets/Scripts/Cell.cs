@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,11 @@ public class Cell
     public bool IsOccupied
     {
         get => occupant != null;
+    }
+
+    public bool CanBeOccupied
+    {
+        get => !Array.Exists(_grid.GetCellsInRadius(this, _grid.Values.OccupiedCellRadius), x => x.IsOccupied);
     }
 
     public Cell(Grid grid, Vector2Int position)
