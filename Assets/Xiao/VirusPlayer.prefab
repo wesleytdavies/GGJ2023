@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5598669422106069357}
   - component: {fileID: 5598669422106069358}
   - component: {fileID: 8523001340349152737}
-  m_Layer: 0
+  - component: {fileID: 1882512842}
+  m_Layer: 8
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: PlayerTrail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,8 +93,8 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.1
-        value: 0.4
+        time: 0.12312088
+        value: 0.23333588
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -102,7 +103,7 @@ TrailRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 0.7601166
-        value: 0.30606383
+        value: 0.1393921
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -123,8 +124,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.989954, b: 0, a: 1}
-      key1: {r: 1, g: 0.9949179, b: 0.49411765, a: 0.53333336}
+      key0: {r: 0, g: 1, b: 0.65682125, a: 1}
+      key1: {r: 0.49411762, g: 1, b: 0.9420189, a: 0.53333336}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -171,6 +172,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659ae38d1ca3c374187b4d4e10190fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &1882512842
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598669422106069356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &5598669422457571246
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +206,7 @@ GameObject:
   - component: {fileID: 1489464849}
   - component: {fileID: 1489464848}
   - component: {fileID: 1489464847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VirusPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -220,8 +243,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22280453, y: -38.397316}
-  m_Size: {x: 2.760812, y: 1488.439}
+  m_Offset: {x: 0.16763799, y: -103.68401}
+  m_Size: {x: 1.8822665, y: 1045.5145}
   m_Direction: 0
 --- !u!50 &1489464848
 Rigidbody2D:
@@ -256,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87db16b956e248748a4804ee7f4976d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
 --- !u!1 &8927041934321827262
 GameObject:
   m_ObjectHideFlags: 0

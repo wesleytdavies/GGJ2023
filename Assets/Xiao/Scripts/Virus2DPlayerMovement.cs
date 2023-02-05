@@ -49,5 +49,10 @@ public class Virus2DPlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Folder")
+        {
+            Debug.Log("Hit Folder");
+        }
     }
 }
