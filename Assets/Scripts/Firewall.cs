@@ -10,6 +10,9 @@ public class Firewall : MonoBehaviour
     //}
     //private CapsuleCollider _capsuleCollider;
 
+    private SpriteMask _mask;
+
+    public Folder spawnFolder;
     public Folder cureFolder;
 
     public float MaxRadius
@@ -18,12 +21,9 @@ public class Firewall : MonoBehaviour
     }
     [SerializeField] private float _maxRadius;
 
-    public float ExpandSpeed
-    {
-        get => _expandSpeed;
-    }
-    [Tooltip("How quickly the radius expands in Unity units per second.")]
-    [SerializeField] private float _expandSpeed;
+    public IEnumerator ExpandCoroutine { get; private set; }
+    public IEnumerator RetractCoroutine { get; private set; }
+    public IEnumerator CureCoroutine;
 
     //TODO: Firewall expansion
     //firewall starts at random folder
@@ -32,19 +32,54 @@ public class Firewall : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Expand());
+        _mask = transform.parent.GetComponentInChildren<SpriteMask>();
+        _mask.transform.localScale = transform.localScale;
+        ExpandCoroutine = Expand();
+        RetractCoroutine = Retract();
+        StartCoroutine(ExpandCoroutine);
+    }
+
+    /// <summary>
+    /// Should be called when Firewall touches player.
+    /// </summary>
+    public void FoundPlayer()
+    {
+        cureFolder.Uncure();
     }
 
     private IEnumerator Expand()
     {
-        Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.z);
+        Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
         while (radius.x < MaxRadius)
         {
-            radius.x += _expandSpeed * Time.fixedDeltaTime;
-            radius.y += _expandSpeed * Time.fixedDeltaTime;
-            transform.localScale = new Vector3(radius.x, transform.localScale.y, radius.y);
+            radius.x += Services.FirewallManager.ExpandSpeed * Time.fixedDeltaTime;
+            radius.y += Services.FirewallManager.ExpandSpeed * Time.fixedDeltaTime;
+            Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
+            transform.localScale = newScale;
+            _mask.transform.localScale = newScale;
             yield return new WaitForFixedUpdate();
         }
+        yield break;
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator Retract()
+    {
+        Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
+        while (radius.x > 0f)
+        {
+            radius.x -= Services.FirewallManager.RetractSpeed * Time.fixedDeltaTime;
+            radius.y -= Services.FirewallManager.RetractSpeed * Time.fixedDeltaTime;
+            Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
+            transform.localScale = newScale;
+            _mask.transform.localScale = newScale;
+            yield return new WaitForFixedUpdate();
+        }
+        Destroy(transform.parent.gameObject);
         yield break;
     }
 }
