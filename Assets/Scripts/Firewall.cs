@@ -6,6 +6,7 @@ public class Firewall : MonoBehaviour
 {
     //public CapsuleCollider CapsuleCollider { get; private set; }
     //public Rigidbody2D Rb { get; private set; }
+    public AudioSource AudioSource { get; private set; }
 
     private SpriteMask _mask;
     [SerializeField] private SpriteRenderer _texture;
@@ -32,6 +33,7 @@ public class Firewall : MonoBehaviour
     {
         //CapsuleCollider = GetComponent<CapsuleCollider>();
         //Rb = GetComponent<Rigidbody2D>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
