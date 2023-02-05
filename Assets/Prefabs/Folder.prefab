@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   parent: {fileID: 0}
+  isCureFolder: 0
+  cureFirewall: {fileID: 0}
   _folderFill: {fileID: 0}
 --- !u!212 &8209430137959190522
 SpriteRenderer:
@@ -164,7 +166,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.2807312, y: -1.3258576}
