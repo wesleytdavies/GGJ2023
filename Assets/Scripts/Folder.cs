@@ -195,6 +195,11 @@ public class Folder : CellOccupant
             //{
             //    StartCoroutine(FillCoroutine);
             //}
+
+            if (!IsInfected)
+            {
+                //Services.AudioManager.PlayFillFolder();
+            }
         }
     }
 
@@ -210,6 +215,7 @@ public class Folder : CellOccupant
             if (!IsInfected && IsFilling)
             {
                 IsFilling = false;
+                //Services.AudioManager.PlayUnfillFolder();
             }
         }
     }
@@ -221,6 +227,10 @@ public class Folder : CellOccupant
             if (isCureFolder)
             {
                 col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            }
+            else
+            {
+                col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
 
             //this is the new stuff
