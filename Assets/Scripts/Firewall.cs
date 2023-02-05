@@ -122,6 +122,7 @@ public class Firewall : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Trigger Firewall");
             foreach (GameObject patrol in GameObject.FindGameObjectsWithTag("Patroler"))
             {
                 if (patrol.name == "PatrolDefender")
