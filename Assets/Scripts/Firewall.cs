@@ -124,8 +124,8 @@ public class Firewall : MonoBehaviour
             {
                 if (patrol.name == "PatrolDefender")
                 {
-                    Debug.Log("Start fire");
                     patrol.gameObject.GetComponent<PatrolMovement>().isAlarmed = true;
+                    Services.FirewallManager.onPlayerHit?.Invoke(this);
                 }
             }
         }
