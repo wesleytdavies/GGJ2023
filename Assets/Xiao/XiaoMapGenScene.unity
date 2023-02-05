@@ -1452,6 +1452,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a098559620bbe7447b52a83b09980e71, type: 2}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.5501785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 0.21212006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[3].value
+      value: 0.21212006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506404937757374307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].outWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5506404937955114307, guid: 1a8fec919f2396b48b00fb13545a4233, type: 3}
       propertyPath: m_Name
       value: PatrolDefender
@@ -2460,9 +2512,49 @@ PrefabInstance:
       value: PlayerTrail
       objectReference: {fileID: 0}
     - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a098559620bbe7447b52a83b09980e71, type: 2}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.65682125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.9420189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.49411762
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.12312088
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.23333588
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598669422106069358, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 0.1393921
+      objectReference: {fileID: 0}
     - target: {fileID: 5598669422457571246, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: m_Name
       value: VirusPlayer
