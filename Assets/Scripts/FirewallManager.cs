@@ -89,6 +89,8 @@ public class FirewallManager : MonoBehaviour
             return;
             //Services.FolderManager.RefillFirewallFolders();
         }
+        Services.AudioManager.PlayFirewallSpawn();
+
         Folder spawnFolder = Services.FolderManager.UnpickedFolders.PickRandom();
         Services.FolderManager.ValidCureFolders.Remove(spawnFolder);
         GameObject newFirewallObject = Instantiate(_firewallPrefab, spawnFolder.transform.position, Quaternion.identity);

@@ -60,6 +60,7 @@ public class Firewall : MonoBehaviour
 
     private IEnumerator Expand()
     {
+        Services.AudioManager.PlayFirewallExpand(this);
         Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
@@ -89,6 +90,7 @@ public class Firewall : MonoBehaviour
     private IEnumerator Retract()
     {
         StopCoroutine(ExpandCoroutine);
+        Services.AudioManager.PlayFirewallRetract(this);
         Destroy(this.gameObject.GetComponent<CapsuleCollider2D>());
         //Rb. = false;
         Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
