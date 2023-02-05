@@ -601,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252967, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: goToSceneName
-      value: XiaoMapGenScene
+      value: Flip
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252968, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: m_Size.y
