@@ -32,7 +32,7 @@ public class ButtonBehavior : MonoBehaviour
                 SceneManager.LoadScene(goToSceneName);
                 Debug.Log("nextroom");
             } else {
-                //Application.Quit();
+                Application.Quit();
                 Debug.Log("quit");
             }
         }

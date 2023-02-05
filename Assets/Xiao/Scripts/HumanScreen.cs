@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
+using UnityEngine.SceneManagement;
 
 public class HumanScreen : MonoBehaviour
 {
@@ -11,14 +11,14 @@ public class HumanScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //SpawnHumanCursor();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("escape"))
         {
-            SpawnHumanCursor();
+            SceneManager.LoadScene("Start Scene");
         }
     }
 

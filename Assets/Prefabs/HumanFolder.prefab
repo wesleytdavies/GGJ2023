@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  isRedFolder: 0
   _spriteRenderer: {fileID: 3181978411217646876}
   _folderFill: {fileID: 5532407489123992126}
   _cureIcon: {fileID: 4182000199526899276}
@@ -831,6 +832,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7595656485435293468}
     m_Modifications:
+    - target: {fileID: 549750239173585408, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345950340481430703, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345950342310763184, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4345950342310763185, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -894,6 +907,14 @@ PrefabInstance:
     - target: {fileID: 4345950342310763190, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
       propertyPath: m_Name
       value: Ring Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894935756410290558, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162910675683895872, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74c3a9eb7046e734c8141768c531d08a, type: 3}

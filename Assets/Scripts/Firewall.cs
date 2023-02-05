@@ -118,6 +118,7 @@ public class Firewall : MonoBehaviour
         spawnFolder.FireIcon.enabled = false;
         spawnFolder.SpriteRenderer.color = spawnFolder.IsInfected ? Services.FolderManager.InfectedColor : spawnFolder.OriginalColor;
         Destroy(transform.parent.gameObject);
+        spawnFolder.isRedFolder = false;
         yield break;
     }
 
