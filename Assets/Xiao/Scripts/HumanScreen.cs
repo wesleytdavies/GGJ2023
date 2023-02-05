@@ -81,13 +81,14 @@ public class HumanScreen : MonoBehaviour
         }
         for (int j = 0; j < allPathFolders.Count; j++)
         {
-            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[0].transform.position.x, allPathFolders[j].pathToParent.ends[0].transform.position.y));
+            cursor.GetComponent<HumanMovement>().waypoints.Insert(0, new Vector2(allPathFolders[j].pathToParent.ends[1].transform.position.x, allPathFolders[j].pathToParent.ends[1].transform.position.y));
             if (allPathFolders[j].pathToParent.Turns.Length > 0)
             {
-                cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.Turns[0].transform.position.x, allPathFolders[j].pathToParent.Turns[0].transform.position.y));
+                cursor.GetComponent<HumanMovement>().waypoints.Insert(0, new Vector2(allPathFolders[j].pathToParent.Turns[0].transform.position.x, allPathFolders[j].pathToParent.Turns[0].transform.position.y));
             }
-            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[1].transform.position.x, allPathFolders[j].pathToParent.ends[1].transform.position.y));
+            cursor.GetComponent<HumanMovement>().waypoints.Insert(0, new Vector2(allPathFolders[j].pathToParent.ends[0].transform.position.x, allPathFolders[j].pathToParent.ends[0].transform.position.y));
         }
+        cursor.GetComponent<HumanMovement>().waypoints.Insert(0, new Vector2(map.Folders[0].transform.position.x, map.Folders[0].transform.position.y));
     }
 
 }
