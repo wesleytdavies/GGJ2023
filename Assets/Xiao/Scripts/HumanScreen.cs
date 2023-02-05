@@ -11,7 +11,7 @@ public class HumanScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //SpawnHumanCursor();
     }
 
     void Update()
