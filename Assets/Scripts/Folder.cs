@@ -9,7 +9,11 @@ using TMPro;
 /// </summary>
 public class Folder : CellOccupant
 {
-    public SpriteRenderer SpriteRenderer { get; private set; }
+    public SpriteRenderer SpriteRenderer
+    {
+        get => _spriteRenderer;
+    }
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     public Color OriginalColor { get; private set; }
 
     [NonSerialized] public Folder parent;
@@ -49,7 +53,6 @@ public class Folder : CellOccupant
     private void Awake()
     {
         Children = new();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
         OriginalColor = SpriteRenderer.color;
         FillCoroutine = Fill();
         UnfillCoroutine = Unfill();

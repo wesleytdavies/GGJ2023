@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  _spriteRenderer: {fileID: 3181978411217646876}
   _folderFill: {fileID: 5532407489123992126}
   _cureIcon: {fileID: 4182000199526899276}
   _fireIcon: {fileID: 1029124103207713129}
