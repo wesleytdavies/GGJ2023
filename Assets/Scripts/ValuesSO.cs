@@ -6,13 +6,13 @@ using UnityEngine;
 public class ValuesSO : ScriptableObject
 {
     //[Header("Cell")]
-    public int CellSize
+    public float CellSize
     {
         get => _cellSize;
         private set => _cellSize = value;
     }
     [Tooltip("Size in Unity units.")]
-    [SerializeField] private int _cellSize;
+    [SerializeField] private float _cellSize;
 
     public Vector2Int CellCount
     {

@@ -85,6 +85,7 @@ public class FolderManager : MonoBehaviour
         ValidFirewallFolders = new(Services.Map.Folders);
         ValidCureFolders = new(Services.Map.Folders);
         UnpickedFolders = new(Services.Map.Folders);
+        UnpickedFolders.RemoveAt(0); //human folder should not be valid
 
         onFolderFill += Fill;
         //onFolderFill += Cure;

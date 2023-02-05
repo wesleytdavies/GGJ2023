@@ -8,6 +8,7 @@ public class Firewall : MonoBehaviour
     public Rigidbody Rb { get; private set; }
 
     private SpriteMask _mask;
+    [SerializeField] private SpriteRenderer _texture;
 
     public Folder spawnFolder;
     public Folder cureFolder;
@@ -42,9 +43,19 @@ public class Firewall : MonoBehaviour
         StartCoroutine(ExpandCoroutine);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(RetractCoroutine);
+        }
+    }
+
     private IEnumerator Expand()
     {
+        Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
+        Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
         while (radius.x < MaxRadius)
         {
             radius.x += Services.FirewallManager.ExpandSpeed * Time.fixedDeltaTime;
@@ -52,6 +63,12 @@ public class Firewall : MonoBehaviour
             Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
             transform.localScale = newScale;
             _mask.transform.localScale = newScale;
+
+            float deltaScale = radius.x / previousRadius.x;
+            previousRadius = radius;
+            textureRadius.x /= deltaScale;
+            textureRadius.y /= deltaScale;
+            _texture.transform.localScale = new Vector3(textureRadius.x, textureRadius.y, _texture.transform.localScale.z);
             yield return new WaitForFixedUpdate();
         }
         yield break;
@@ -66,7 +83,9 @@ public class Firewall : MonoBehaviour
     {
         StopCoroutine(ExpandCoroutine);
         Rb.detectCollisions = false;
+        Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
+        Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
         while (radius.x > 0f)
         {
             radius.x -= Services.FirewallManager.RetractSpeed * Time.fixedDeltaTime;
@@ -74,6 +93,12 @@ public class Firewall : MonoBehaviour
             Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
             transform.localScale = newScale;
             _mask.transform.localScale = newScale;
+
+            float deltaScale = previousRadius.x / radius.x;
+            previousRadius = radius;
+            textureRadius.x *= deltaScale;
+            textureRadius.y *= deltaScale;
+            _texture.transform.localScale = new Vector3(textureRadius.x, textureRadius.y, _texture.transform.localScale.z);
             yield return new WaitForFixedUpdate();
         }
         if (!Services.FolderManager.UnpickedFolders.Contains(spawnFolder))
