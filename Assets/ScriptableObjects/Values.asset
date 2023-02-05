@@ -17,5 +17,6 @@ MonoBehaviour:
   _gridOrigin: {x: -10, y: -10, z: 0}
   humanFolderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
   folderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
+  turnPrefab: {fileID: 7830075280959673369, guid: 3d0cabb8ad7494e23bc06a90e05b431a, type: 3}
   _humanCellRadius: 8
   _occupiedCellRadius: 3

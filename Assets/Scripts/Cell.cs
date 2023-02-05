@@ -12,6 +12,19 @@ public class Cell
     {
         get => new(Position.x * _grid.Values.CellSize + _grid.Origin.x, 0f, Position.y * _grid.Values.CellSize + _grid.Origin.y);
     }
+    //public Vector3 WorldPosition
+    //{
+    //    get => _grid.Map.transform.TransformPoint(LocalPosition);
+    //}
+
+    //public Vector3 LocalPosition
+    //{
+    //    get => new(Position.x * _grid.Values.CellSize + _grid.Origin.x, 0f, Position.y * _grid.Values.CellSize + _grid.Origin.y);
+    //}
+    //public Vector3 WorldPosition
+    //{
+    //    get => _grid.Map.transform.TransformPoint(LocalPosition);
+    //}
 
     public CellOccupant occupant;
 
