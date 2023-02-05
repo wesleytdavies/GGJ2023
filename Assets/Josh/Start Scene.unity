@@ -262,6 +262,10 @@ PrefabInstance:
       value: Quit Button
       objectReference: {fileID: 0}
     - target: {fileID: 5358497872089596650, guid: 5ed1ed0cd5c11404aa3852474328018c, type: 3}
+      propertyPath: quit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358497872089596650, guid: 5ed1ed0cd5c11404aa3852474328018c, type: 3}
       propertyPath: hoverColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -295,11 +299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5358497872089596651, guid: 5ed1ed0cd5c11404aa3852474328018c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6
+      value: 4.68
       objectReference: {fileID: 0}
     - target: {fileID: 5358497872089596651, guid: 5ed1ed0cd5c11404aa3852474328018c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 5358497872089596651, guid: 5ed1ed0cd5c11404aa3852474328018c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -364,11 +368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252966, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6
+      value: 4.65
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252966, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252966, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: m_LocalRotation.w
@@ -409,6 +413,10 @@ PrefabInstance:
     - target: {fileID: 1434758942215252967, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: hoverColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434758942215252967, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
+      propertyPath: levelOneName
+      value: Josh 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}

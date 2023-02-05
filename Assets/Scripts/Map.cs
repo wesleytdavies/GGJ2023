@@ -14,6 +14,10 @@ public class Map : MonoBehaviour
     [SerializeField] private Vector2Int _startCellPosition;
     //[Tooltip("How many root folders should there be?")]
     //[SerializeField] private int _maxRootFolders;
+    public int MaxFolders
+    {
+        get => _maxFolders;
+    }
     [Tooltip("How many non-root folders to put on the map.")]
     [SerializeField] private int _maxFolders;
     public int MaxChildCount

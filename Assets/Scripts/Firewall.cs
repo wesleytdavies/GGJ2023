@@ -10,6 +10,8 @@ public class Firewall : MonoBehaviour
     //}
     //private CapsuleCollider _capsuleCollider;
 
+    public Folder cureFolder;
+
     public float MaxRadius
     {
         get => _maxRadius;
