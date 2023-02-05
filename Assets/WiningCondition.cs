@@ -12,7 +12,7 @@ public class WiningCondition : MonoBehaviour
     void Start()
     {
         map = GameObject.Find("Map").GetComponent<Map>();
-        PlayPartical();
+        //PlayPartical();
     }
 
     // Update is called once per frame
