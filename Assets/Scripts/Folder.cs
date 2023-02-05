@@ -69,21 +69,6 @@ public class Folder : CellOccupant
         //StartCoroutine(FillCoroutine);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (IsFilling)
-            {
-                StartCoroutine(UnfillCoroutine);
-            }
-            else
-            {
-                StartCoroutine(FillCoroutine);
-            }
-        }
-    }
-
     private void OnDestroy()
     {
         StopAllCoroutines();
