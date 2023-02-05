@@ -137,4 +137,30 @@ public class Folder : CellOccupant
         }
         yield break;
     }
+
+    //when the player collides with a folder
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Start Fill");
+            if (!IsInfected)
+            {
+                StartCoroutine(FillCoroutine);
+            }
+        }
+    }
+
+    //when the player exits collision with a folder
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Leave Fill");
+            if (!IsInfected && IsFilling)
+            {
+                StartCoroutine(UnfillCoroutine);
+            }
+        }
+    }
 }
