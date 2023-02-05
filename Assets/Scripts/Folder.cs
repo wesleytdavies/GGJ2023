@@ -218,7 +218,10 @@ public class Folder : CellOccupant
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            if (isCureFolder)
+            {
+                col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            }
 
             //this is the new stuff
             if (!IsInfected)
