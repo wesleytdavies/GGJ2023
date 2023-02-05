@@ -124,11 +124,23 @@ public class Folder : CellOccupant
     }
 
     //when the player collides with a folder
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Start Fill");
+            if (isCureFolder)
+            {
+                col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                foreach (GameObject patrol in GameObject.FindGameObjectsWithTag("Patroler"))
+                {
+                    if (patrol.name == "PatrolDefender")
+                    {
+                        patrol.gameObject.GetComponent<PatrolMovement>().isAlarmed = false;
+                    }
+                }
+            }
+
+            //Debug.Log("Start Fill");
             if (!IsInfected)
             {
                 StartCoroutine(FillCoroutine);
@@ -141,10 +153,26 @@ public class Folder : CellOccupant
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Leave Fill");
+            col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            //Debug.Log("Leave Fill");
             if (!IsInfected && IsFilling)
             {
                 StartCoroutine(UnfillCoroutine);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            foreach (GameObject patrol in GameObject.FindGameObjectsWithTag("Patroler"))
+            {
+                if (patrol.name == "PatrolDefender")
+                {
+                    patrol.gameObject.GetComponent<PatrolMovement>().isAlarmed = false;
+                }
             }
         }
     }

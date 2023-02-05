@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6454749554735203307, guid: 069919ce91fcf472dbcd4fbed2151c8a, type: 3}
+      propertyPath: _expandSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6454749554735203310, guid: 069919ce91fcf472dbcd4fbed2151c8a, type: 3}
       propertyPath: m_Name
       value: Firewall Manager
@@ -2570,6 +2574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1489464848, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5598669422457571246, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: m_Name
       value: VirusPlayer

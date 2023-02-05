@@ -27,18 +27,22 @@ public class PatrolMovement : MonoBehaviour
         transform.position = newpos;
 
         float distance = Vector3.Distance(transform.position, destination);
-        if (distance <= 0.05 && !isAlarmed)
-        {
-            _folders = _map.GetComponent<Map>().Folders;
-            randomNumber = Random.Range(1, _folders.Count - 1);
-            _destination = new Vector2(_folders[randomNumber].gameObject.transform.position.x, _folders[randomNumber].gameObject.transform.position.y);
-        }
-
-        if(isAlarmed)
+        if (isAlarmed)
         {
             //isAlarmed = false;
             _destination = GameObject.Find("VirusPlayer").transform.position;
         }
+
+        if (!isAlarmed)
+        {
+            if (distance <= 0.05)
+            {
+                _folders = _map.GetComponent<Map>().Folders;
+                randomNumber = Random.Range(1, _folders.Count - 1);
+                _destination = new Vector2(_folders[randomNumber].gameObject.transform.position.x, _folders[randomNumber].gameObject.transform.position.y);
+            }
+        }
+
     }
 
 }
