@@ -29,4 +29,11 @@ public class Virus2DPlayerMovement : MonoBehaviour
     {
         _rb.velocity = (direction * speed);
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Patroler")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
