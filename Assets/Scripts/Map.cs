@@ -105,13 +105,15 @@ public class Map : MonoBehaviour
                 GridPath newGridPath;
                 if(folder.cell.Position.x == child.cell.Position.x || folder.cell.Position.y == child.cell.Position.y)
                 {
-                    newGridPath = new(folder.cell, child.cell);
+                    //newGridPath = new(folder.cell, child.cell);
+                    newGridPath = new(folder, child);
                     paths.Add(newGridPath);
                     child.pathToParent = newGridPath;
                     continue;
                 }
                 int coinFlip = Random.Range(0, 2);
                 Cell turningCell;
+                CellOccupant turn;
                 switch (coinFlip)
                 {
                     case 0:
@@ -124,7 +126,11 @@ public class Map : MonoBehaviour
                         turningCell = null;
                         break;
                 }
-                newGridPath = new(folder.cell, child.cell, turningCell);
+                turn = Instantiate(_values.turnPrefab, transform);
+                turn.transform.position = transform.InverseTransformPoint(turningCell.WorldPosition);
+                turn.map = this;
+                //newGridPath = new(folder.cell, child.cell, turningCell);
+                newGridPath = new(folder, child, turn);
                 child.pathToParent = newGridPath;
                 paths.Add(newGridPath);
             }

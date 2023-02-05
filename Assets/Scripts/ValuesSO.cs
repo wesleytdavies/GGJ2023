@@ -32,6 +32,7 @@ public class ValuesSO : ScriptableObject
 
     public Folder humanFolderPrefab;
     public Folder folderPrefab;
+    public CellOccupant turnPrefab;
 
     public int HumanCellRadius
     {
