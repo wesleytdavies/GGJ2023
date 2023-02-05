@@ -45,14 +45,14 @@ public class Virus2DPlayerMovement : MonoBehaviour
     //Kill the player when it collides with Patroler
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Patroler")
+        if (collision.gameObject.CompareTag("Patroler"))
         {
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Folder")
+/*        if (collision.gameObject.CompareTag("Folder"))
         {
             Debug.Log("Hit Folder");
-        }
+        }*/
     }
 }

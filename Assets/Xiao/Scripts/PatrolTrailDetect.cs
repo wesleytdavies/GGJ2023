@@ -6,10 +6,6 @@ public class PatrolTrailDetect : MonoBehaviour
 {
     public PatrolMovement _patroler;
 
-    private void Start()
-    {
-        Debug.Log("Adddded!");
-    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
