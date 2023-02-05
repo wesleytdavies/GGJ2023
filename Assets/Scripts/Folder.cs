@@ -153,11 +153,13 @@ public class Folder : CellOccupant
     {
         if (col.gameObject.CompareTag("Player"))
         {
+
             col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            StartCoroutine(UnfillCoroutine);
             //Debug.Log("Leave Fill");
             if (!IsInfected && IsFilling)
             {
-                StartCoroutine(UnfillCoroutine);
+
             }
         }
     }
