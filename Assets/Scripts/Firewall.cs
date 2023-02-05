@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Firewall : MonoBehaviour
 {
-    //public CapsuleCollider CapsuleCollider
-    //{
-    //    get => _capsuleCollider;
-    //}
-    //private CapsuleCollider _capsuleCollider;
+    //public CapsuleCollider CapsuleCollider { get; private set; }
+    public Rigidbody Rb { get; private set; }
 
     private SpriteMask _mask;
+    [SerializeField] private SpriteRenderer _texture;
 
     public Folder spawnFolder;
     public Folder cureFolder;
@@ -30,6 +28,12 @@ public class Firewall : MonoBehaviour
     //cure folder
     //infect effect (filling up folder)
 
+    private void Awake()
+    {
+        //CapsuleCollider = GetComponent<CapsuleCollider>();
+        Rb = GetComponent<Rigidbody>();
+    }
+
     private void Start()
     {
         _mask = transform.parent.GetComponentInChildren<SpriteMask>();
@@ -39,17 +43,19 @@ public class Firewall : MonoBehaviour
         StartCoroutine(ExpandCoroutine);
     }
 
-    /// <summary>
-    /// Should be called when Firewall touches player.
-    /// </summary>
-    public void FoundPlayer()
+    private void Update()
     {
-        cureFolder.Uncure();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(RetractCoroutine);
+        }
     }
 
     private IEnumerator Expand()
     {
+        Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
+        Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
         while (radius.x < MaxRadius)
         {
             radius.x += Services.FirewallManager.ExpandSpeed * Time.fixedDeltaTime;
@@ -57,6 +63,12 @@ public class Firewall : MonoBehaviour
             Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
             transform.localScale = newScale;
             _mask.transform.localScale = newScale;
+
+            float deltaScale = radius.x / previousRadius.x;
+            previousRadius = radius;
+            textureRadius.x /= deltaScale;
+            textureRadius.y /= deltaScale;
+            _texture.transform.localScale = new Vector3(textureRadius.x, textureRadius.y, _texture.transform.localScale.z);
             yield return new WaitForFixedUpdate();
         }
         yield break;
@@ -69,7 +81,11 @@ public class Firewall : MonoBehaviour
 
     private IEnumerator Retract()
     {
+        StopCoroutine(ExpandCoroutine);
+        Rb.detectCollisions = false;
+        Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
+        Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
         while (radius.x > 0f)
         {
             radius.x -= Services.FirewallManager.RetractSpeed * Time.fixedDeltaTime;
@@ -77,8 +93,20 @@ public class Firewall : MonoBehaviour
             Vector3 newScale = new Vector3(radius.x, radius.y, transform.localScale.z);
             transform.localScale = newScale;
             _mask.transform.localScale = newScale;
+
+            float deltaScale = previousRadius.x / radius.x;
+            previousRadius = radius;
+            textureRadius.x *= deltaScale;
+            textureRadius.y *= deltaScale;
+            _texture.transform.localScale = new Vector3(textureRadius.x, textureRadius.y, _texture.transform.localScale.z);
             yield return new WaitForFixedUpdate();
         }
+        if (!Services.FolderManager.UnpickedFolders.Contains(spawnFolder))
+        {
+            Services.FolderManager.UnpickedFolders.Add(spawnFolder);
+        }
+        spawnFolder.FireIcon.enabled = false;
+        spawnFolder.SpriteRenderer.color = spawnFolder.IsInfected ? Services.FolderManager.InfectedColor : spawnFolder.OriginalColor;
         Destroy(transform.parent.gameObject);
         yield break;
     }

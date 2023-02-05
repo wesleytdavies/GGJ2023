@@ -26,6 +26,9 @@ public class FirewallManager : MonoBehaviour
     [Tooltip("How quickly the radius expands in Unity units per second.")]
     [SerializeField] private float _retractSpeed;
 
+    public delegate void PlayerHit(Firewall firewall);
+    public PlayerHit onPlayerHit;
+
     private void Awake()
     {
         Services.FirewallManager = this;
@@ -34,11 +37,13 @@ public class FirewallManager : MonoBehaviour
 
     private void Start()
     {
+        onPlayerHit += HitPlayer;
         StartCoroutine(StartFirewallCoroutine);
     }
 
     private void OnDestroy()
     {
+        onPlayerHit -= HitPlayer;
         StopAllCoroutines();
     }
 
@@ -58,6 +63,12 @@ public class FirewallManager : MonoBehaviour
         }
     }
 
+    private void HitPlayer(Firewall firewall)
+    {
+        StartCoroutine(firewall.RetractCoroutine);
+        firewall.cureFolder.Uncure();
+    }
+
     //private void SpawnFirstFirewall()
     //{
     //    if (Services.FolderManager.UnpickedFirewallFolders.Count <= 0)
@@ -74,15 +85,27 @@ public class FirewallManager : MonoBehaviour
     {
         if (Services.FolderManager.UnpickedFolders.Count <= 0)
         {
-            Services.FolderManager.RefillFirewallFolders();
+            StopCoroutine(StartFirewallCoroutine);
+            return;
+            //Services.FolderManager.RefillFirewallFolders();
         }
         Folder spawnFolder = Services.FolderManager.UnpickedFolders.PickRandom();
         Services.FolderManager.ValidCureFolders.Remove(spawnFolder);
         GameObject newFirewallObject = Instantiate(_firewallPrefab, spawnFolder.transform.position, Quaternion.identity);
         Firewall newFirewall = newFirewallObject.GetComponentInChildren<Firewall>();
         newFirewall.spawnFolder = spawnFolder;
-        Services.FolderManager.UnpickedFolders.Remove(spawnFolder);
-        Services.FolderManager.FirewallFolders.Add(spawnFolder);
+        spawnFolder.FireIcon.enabled = true;
+        spawnFolder.SpriteRenderer.color = Services.FolderManager.FireColor;
+
+        if (Services.FolderManager.UnpickedFolders.Contains(spawnFolder))
+        {
+            Services.FolderManager.UnpickedFolders.Remove(spawnFolder);
+        }
+        if (!Services.FolderManager.FirewallFolders.Contains(spawnFolder))
+        {
+            Services.FolderManager.FirewallFolders.Add(spawnFolder);
+        }
+
         Services.FolderManager.AssignCureFolder(newFirewall);
     }
 }
