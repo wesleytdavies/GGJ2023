@@ -18,5 +18,5 @@ MonoBehaviour:
   humanFolderPrefab: {fileID: 7595656485435293475, guid: 0e44f74d4eea7f040abcf8e7ac711b72, type: 3}
   folderPrefab: {fileID: 7595656485435293475, guid: 806c2282757e34775a09eb677060bc77, type: 3}
   turnPrefab: {fileID: 7830075280959673369, guid: 3d0cabb8ad7494e23bc06a90e05b431a, type: 3}
-  _humanCellRadius: 0
+  _humanCellRadius: 10
   _occupiedCellRadius: 3
