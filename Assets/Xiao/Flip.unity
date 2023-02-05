@@ -2377,6 +2377,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012826856}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2095065873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8927041934321827262, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+  m_PrefabInstance: {fileID: 5598669422271395416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102221846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,6 +2584,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1489464847, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: Quad
+      value: 
+      objectReference: {fileID: 2095065873}
+    - target: {fileID: 1489464847, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
@@ -2635,6 +2644,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.70710754
       objectReference: {fileID: 0}
@@ -2645,6 +2666,10 @@ PrefabInstance:
     - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036164907902833647, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c56b480f7e2e4b41bb6625eba084b4e, type: 3}

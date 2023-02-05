@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 5776964912422693202}
   - component: {fileID: 6418583516428772115}
   - component: {fileID: 2017944832492556182}
+  - component: {fileID: 2077887570979068958}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Human
@@ -426,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5469630500278101791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.1, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 116.50423, y: 66.012375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,7 +515,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.1641532e-10}
@@ -530,6 +531,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2077887570979068958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469630500278101791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472879915970c145bfc4bb5eb4d281b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5532407488861347875
 GameObject:
   m_ObjectHideFlags: 0
