@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolCursor : MonoBehaviour
+public class PatrolMovement : MonoBehaviour
 {
     public Vector2 _destination;
     public float _speed = 2;
     public List<Folder> _folders;
     public int randomNumber = 0;
+    GameObject _map;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject _map = GameObject.Find("Map");
+        _map = GameObject.Find("Map");
         _folders = _map.GetComponent<Map>().Folders;
-        _destination = _folders[randomNumber].gameObject.transform.position;
+        _destination = new Vector2(_folders[randomNumber].gameObject.transform.position.x, _folders[randomNumber].gameObject.transform.position.y);
     }
 
     // Update is called once per frame
@@ -27,8 +28,9 @@ public class PatrolCursor : MonoBehaviour
         float distance = Vector3.Distance(transform.position, destination);
         if (distance <= 0.05)
         {
+            _folders = _map.GetComponent<Map>().Folders;
             randomNumber = Random.Range(1, _folders.Count - 1);
-            _destination = _folders[randomNumber].gameObject.transform.position;
+            _destination = new Vector2(_folders[randomNumber].gameObject.transform.position.x, _folders[randomNumber].gameObject.transform.position.y);
         }
     }
 

@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 5506404937955114311}
   - component: {fileID: 5506404937955114308}
   - component: {fileID: 5506404937955114309}
-  - component: {fileID: 5506404937955114306}
+  - component: {fileID: 8047030490586735058}
   m_Layer: 0
   m_Name: PatrolDefender
   m_TagString: Untagged
@@ -258,7 +258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 09e461a8abe77ff40a8f5ab0895ac300, type: 2}
+  - {fileID: 2100000, guid: 6aed7a88d06c08e4aa44d0288ce0b634, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,7 +293,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5506404937955114306
+--- !u!114 &8047030490586735058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,8 +302,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5506404937955114307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0d3848831fec84381767649671899e, type: 3}
+  m_Script: {fileID: 11500000, guid: b447c999bb169bc48909c3eb28e361f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  Speed: 10
+  _destination: {x: 0, y: 0}
+  _speed: 10
+  _folders: []
+  randomNumber: 0
