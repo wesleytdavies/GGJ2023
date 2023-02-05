@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Virus2DPlayerMovement : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class Virus2DPlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Patroler") && !GetComponent<CapsuleCollider2D>().isTrigger)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("End Scene");
         }
 
 /*        if (collision.gameObject.CompareTag("Folder"))
