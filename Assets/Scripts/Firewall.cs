@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Firewall : MonoBehaviour
 {
-    //public CapsuleCollider CapsuleCollider
-    //{
-    //    get => _capsuleCollider;
-    //}
-    //private CapsuleCollider _capsuleCollider;
+    //public CapsuleCollider CapsuleCollider { get; private set; }
+    public Rigidbody Rb { get; private set; }
 
     private SpriteMask _mask;
 
@@ -30,6 +27,12 @@ public class Firewall : MonoBehaviour
     //cure folder
     //infect effect (filling up folder)
 
+    private void Awake()
+    {
+        //CapsuleCollider = GetComponent<CapsuleCollider>();
+        Rb = GetComponent<Rigidbody>();
+    }
+
     private void Start()
     {
         _mask = transform.parent.GetComponentInChildren<SpriteMask>();
@@ -37,14 +40,6 @@ public class Firewall : MonoBehaviour
         ExpandCoroutine = Expand();
         RetractCoroutine = Retract();
         StartCoroutine(ExpandCoroutine);
-    }
-
-    /// <summary>
-    /// Should be called when Firewall touches player.
-    /// </summary>
-    public void FoundPlayer()
-    {
-        cureFolder.Uncure();
     }
 
     private IEnumerator Expand()
@@ -69,6 +64,8 @@ public class Firewall : MonoBehaviour
 
     private IEnumerator Retract()
     {
+        StopCoroutine(ExpandCoroutine);
+        Rb.detectCollisions = false;
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
         while (radius.x > 0f)
         {
@@ -79,6 +76,12 @@ public class Firewall : MonoBehaviour
             _mask.transform.localScale = newScale;
             yield return new WaitForFixedUpdate();
         }
+        if (!Services.FolderManager.UnpickedFolders.Contains(spawnFolder))
+        {
+            Services.FolderManager.UnpickedFolders.Add(spawnFolder);
+        }
+        spawnFolder.FireIcon.enabled = false;
+        spawnFolder.SpriteRenderer.color = spawnFolder.IsInfected ? Services.FolderManager.InfectedColor : spawnFolder.OriginalColor;
         Destroy(transform.parent.gameObject);
         yield break;
     }
