@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LargeValues
   m_EditorClassIdentifier: 
   _cellSize: 1
-  _cellCount: {x: 51, y: 51}
-  _gridOrigin: {x: -25, y: -25, z: 0}
+  _cellCount: {x: 25, y: 25}
+  _gridOrigin: {x: -12, y: -12, z: 0}
   humanFolderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
   folderPrefab: {fileID: 2706448966643007835, guid: 912649074aa574fd5a7cd9011780e30d, type: 3}
   turnPrefab: {fileID: 7830075280959673369, guid: 3d0cabb8ad7494e23bc06a90e05b431a, type: 3}
