@@ -21,13 +21,11 @@ public class Virus2DPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.GetAxis("Horizontal"));
         _movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetAxis("Horizontal") <= 0)
         {
             m_Animator.SetBool("Vertical", false);
-            Quad.
         }
         if (Input.GetAxis("Vertical") != 0)
         {

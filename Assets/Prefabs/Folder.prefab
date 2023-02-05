@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
-  parent: {fileID: 0}
-  isCureFolder: 0
-  cureFirewall: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
   _folderFill: {fileID: 0}
+  _cureIcon: {fileID: 0}
+  _fireIcon: {fileID: 0}
 --- !u!212 &8209430137959190522
 SpriteRenderer:
   m_ObjectHideFlags: 0
