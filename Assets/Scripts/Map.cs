@@ -36,8 +36,9 @@ public class Map : MonoBehaviour
     public GridPath[] Paths { get; private set; }
     public Cell HumanCell { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
+        Services.Map = this;
         Folders = new();
         Grid = new(_values, _values.GridOrigin, this);
         PopulateMap(_maxFolders);
