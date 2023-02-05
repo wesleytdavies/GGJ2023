@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Josh/Instructions 4.unity
     guid: 587f5679f3f431f488ae1e48ebb8e98f
+  - enabled: 1
+    path: Assets/Josh/Win Scene.unity
+    guid: cd91726bde272304aabbc32339d849c2
   m_configObjects: {}
