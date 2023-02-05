@@ -12,15 +12,16 @@ public class WiningCondition : MonoBehaviour
     void Start()
     {
         map = GameObject.Find("Map").GetComponent<Map>();
-        particle.Play();
+        PlayPartical();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Services.FolderManager.InfectedFolders.Count >= map.Folders.Count && !won)
+        if (Services.FolderManager.InfectedFolders.Count >= map.Folders.Count-1 && !won)
         {
             won = true;
+            PlayPartical();
         }
     }
     void PlayPartical()
