@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Base class for folders
 /// </summary>
 public class Folder : CellOccupant
 {
+    public bool isRedFolder = false;
     public SpriteRenderer SpriteRenderer
     {
         get => _spriteRenderer;
@@ -190,6 +192,11 @@ public class Folder : CellOccupant
                 }
             }
 
+
+            if (isRedFolder)
+            {
+                SceneManager.LoadScene("End Scene");
+            }
             //Debug.Log("Start Fill");
             //if (!IsInfected)
             //{

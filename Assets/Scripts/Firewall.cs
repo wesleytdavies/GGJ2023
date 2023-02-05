@@ -38,6 +38,7 @@ public class Firewall : MonoBehaviour
 
     private void Start()
     {
+        spawnFolder.isRedFolder = true;
         _mask = transform.parent.GetComponentInChildren<SpriteMask>();
         _mask.transform.localScale = transform.localScale;
         ExpandCoroutine = Expand();
