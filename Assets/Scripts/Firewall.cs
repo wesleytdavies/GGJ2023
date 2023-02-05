@@ -5,7 +5,7 @@ using UnityEngine;
 public class Firewall : MonoBehaviour
 {
     //public CapsuleCollider CapsuleCollider { get; private set; }
-    public Rigidbody Rb { get; private set; }
+    //public Rigidbody2D Rb { get; private set; }
 
     private SpriteMask _mask;
     [SerializeField] private SpriteRenderer _texture;
@@ -31,7 +31,7 @@ public class Firewall : MonoBehaviour
     private void Awake()
     {
         //CapsuleCollider = GetComponent<CapsuleCollider>();
-        Rb = GetComponent<Rigidbody>();
+        //Rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -41,9 +41,13 @@ public class Firewall : MonoBehaviour
         ExpandCoroutine = Expand();
         RetractCoroutine = Retract();
         StartCoroutine(ExpandCoroutine);
+/*        if (patrols == null)
+        {
+            patrols = GameObject.FindGameObjectsWithTag("Patroler");
+        }*/
     }
 
-    private void Update()
+        private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -82,7 +86,8 @@ public class Firewall : MonoBehaviour
     private IEnumerator Retract()
     {
         StopCoroutine(ExpandCoroutine);
-        Rb.detectCollisions = false;
+        Destroy(this.gameObject.GetComponent<CapsuleCollider2D>());
+        //Rb. = false;
         Vector2 previousRadius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 radius = new Vector2(transform.localScale.x, transform.localScale.y);
         Vector2 textureRadius = new Vector2(_texture.transform.localScale.x, _texture.transform.localScale.y);
@@ -110,4 +115,29 @@ public class Firewall : MonoBehaviour
         Destroy(transform.parent.gameObject);
         yield break;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            foreach (GameObject patrol in GameObject.FindGameObjectsWithTag("Patroler"))
+            {
+                if (patrol.name == "PatrolDefender")
+                {
+                    patrol.gameObject.GetComponent<PatrolMovement>().isAlarmed = true;
+                    Services.FirewallManager.onPlayerHit?.Invoke(this);
+                }
+            }
+        }
+    }
+
+    //when the player exits collision with a folder
+/*    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Leave Fire");
+
+        }
+    }*/
 }

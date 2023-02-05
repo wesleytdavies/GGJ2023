@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Virus2DPlayerMovement : MonoBehaviour
 {
@@ -45,9 +46,10 @@ public class Virus2DPlayerMovement : MonoBehaviour
     //Kill the player when it collides with Patroler
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Patroler"))
+        if (collision.gameObject.CompareTag("Patroler") && !GetComponent<CapsuleCollider2D>().isTrigger)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("End Scene");
         }
 
 /*        if (collision.gameObject.CompareTag("Folder"))

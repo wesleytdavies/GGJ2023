@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Josh/Josh 2.unity
     guid: bed0572a7ba646042a46884eb90cd895
   - enabled: 1
-    path: Assets/Xiao/XiaoMapGenScene.unity
+    path: Assets/Xiao/Flip.unity
     guid: ddff1ffcc1b2268458949d31b20bdf3f
+  - enabled: 1
+    path: Assets/Josh/Instructions 1.unity
+    guid: 3c487599e99543045b593f55b58ac351
+  - enabled: 1
+    path: Assets/Josh/Instructions 2.unity
+    guid: 9be9bf9576ef11240b5932c2bc0d086d
+  - enabled: 1
+    path: Assets/Josh/Instructions 3.unity
+    guid: 502d0a53c4132314a9a20375e5730f7f
+  - enabled: 1
+    path: Assets/Josh/End Scene.unity
+    guid: 319f76d5b4684e34384e3bdcd58c9da5
   m_configObjects: {}
