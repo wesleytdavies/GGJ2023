@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class ChangeSpriteMask : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public SpriteRenderer spriteRenderer;
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public Sprite sprite3;
+
+
+    private IEnumerator Switch(){
+        while(true){
+            yield return new WaitForSeconds(0.25f);
+            ChangeSprite();
+        }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start(){
+        StartCoroutine(Switch());
+    }
+    void ChangeSprite()
     {
-        
+        if(spriteRenderer.sprite == sprite1){
+            spriteRenderer.sprite = sprite2;
+        } else if (spriteRenderer.sprite == sprite2){
+            spriteRenderer.sprite = sprite3;
+        } else if (spriteRenderer.sprite = sprite3){
+            spriteRenderer.sprite = sprite1;
+        }
     }
 }
