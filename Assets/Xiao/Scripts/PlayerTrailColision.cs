@@ -13,9 +13,8 @@ public class PlayerTrailColision : MonoBehaviour
     {
         myTrail = this.GetComponent<TrailRenderer>();
         myCollider = GetValidCollider();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         myCollider.isTrigger = true;
+        myCollider.gameObject.AddComponent<PlayerTrailDetect>();
     }
 
     void Update()

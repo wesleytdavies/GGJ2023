@@ -55,7 +55,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 09e461a8abe77ff40a8f5ab0895ac300, type: 2}
+  - {fileID: 2100000, guid: 9feaa5645c374d7499ddb08d57ebdf5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   _speed: 10
   _folders: []
   randomNumber: 0
+  isAlarmed: 0
 --- !u!212 &5622154356949704603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -331,6 +332,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.29117805, y: -0.225402}
-  m_Size: {x: 11.047147, y: 5955.8584}
+  m_Offset: {x: 0.48805815, y: -56.289906}
+  m_Size: {x: 7.4720755, y: 4028.427}
   m_Direction: 0

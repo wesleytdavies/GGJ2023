@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1434758942215252967, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}
       propertyPath: levelOneName
-      value: Josh 2
+      value: XiaoMapGenScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e1ffbd3c54d4b448d0ce1ac8151664, type: 3}

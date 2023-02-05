@@ -54,7 +54,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6aed7a88d06c08e4aa44d0288ce0b634, type: 2}
+  - {fileID: 2100000, guid: a098559620bbe7447b52a83b09980e71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.23199463
+        value: 0.41381073
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -101,8 +101,8 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
-        value: 0.2
+        time: 0.7601166
+        value: 0.30606383
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -111,7 +111,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.27272516
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -220,8 +220,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020684395, y: -0.22536798}
-  m_Size: {x: 3.5326133, y: 2030.4896}
+  m_Offset: {x: 0.22280453, y: -38.397316}
+  m_Size: {x: 2.760812, y: 1488.439}
   m_Direction: 0
 --- !u!50 &1489464848
 Rigidbody2D:
