@@ -28,10 +28,6 @@ public class HumanScreen : MonoBehaviour
         //Get a random set of path from the GridPath on Map
         int randomNumber = Random.Range(4, map.Folders.Count-1);
         Folder randomFolder = map.Folders[randomNumber];
-        if (randomFolder.pathToParent == null)
-        {
-            Debug.Log("paht null");
-        }
         //Debug.Log(randomNumber);
 
         //Spawn a Cursor and set its waypoints
@@ -43,7 +39,6 @@ public class HumanScreen : MonoBehaviour
     {
         List<Folder> allPathFolders = new List<Folder>();
         //check how many parents folders does the randomFolder have
-        Debug.Log("Folder count: " + folderCount);
         int parentsToCheck = -1;
         int i = 0;
         while (i < folderCount)
@@ -51,7 +46,6 @@ public class HumanScreen : MonoBehaviour
             parentsToCheck++;
             i += (int)Mathf.Pow(map.MaxChildCount, parentsToCheck);
         }
-        Debug.Log("parents to check:" + parentsToCheck);
         Folder childFolder = randomFolder;
         for (int j = parentsToCheck; j > 0; j--)
         {
@@ -60,7 +54,6 @@ public class HumanScreen : MonoBehaviour
         }
 
         //List<Vector2> cursorPath = cursor.GetComponent<HumanMovement>().waypoints;
-        Debug.Log(allPathFolders.Count);
         foreach (Folder folder in allPathFolders)
         {
 
@@ -88,13 +81,12 @@ public class HumanScreen : MonoBehaviour
         }
         for (int j = 0; j < allPathFolders.Count; j++)
         {
-            Debug.Log(allPathFolders[j].pathToParent.ends[0].WorldPosition.x + ", " + allPathFolders[j].pathToParent.ends[0].WorldPosition.z);
-            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[0].WorldPosition.x, allPathFolders[j].pathToParent.ends[0].WorldPosition.z));
+            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[0].transform.position.x, allPathFolders[j].pathToParent.ends[0].transform.position.y));
             if (allPathFolders[j].pathToParent.Turns.Length > 0)
             {
-                cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.Turns[0].WorldPosition.x, allPathFolders[j].pathToParent.Turns[0].WorldPosition.z));
+                cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.Turns[0].transform.position.x, allPathFolders[j].pathToParent.Turns[0].transform.position.y));
             }
-            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[1].WorldPosition.x, allPathFolders[j].pathToParent.ends[1].WorldPosition.z));
+            cursor.GetComponent<HumanMovement>().waypoints.Add(new Vector2(allPathFolders[j].pathToParent.ends[1].transform.position.x, allPathFolders[j].pathToParent.ends[1].transform.position.y));
         }
     }
 
