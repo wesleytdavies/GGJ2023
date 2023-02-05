@@ -50,12 +50,14 @@ public class Folder : CellOccupant
     public IEnumerator FillCoroutine { get; private set; }
     public IEnumerator UnfillCoroutine { get; private set; }
 
+    private bool _startedFilling = false;
+
     private void Awake()
     {
         Children = new();
         OriginalColor = SpriteRenderer.color;
-        FillCoroutine = Fill();
-        UnfillCoroutine = Unfill();
+        //FillCoroutine = Fill();
+        //UnfillCoroutine = Unfill();
         IsFilling = false;
     }
 
@@ -86,41 +88,89 @@ public class Folder : CellOccupant
         cureFirewall = null;
     }
 
-    private IEnumerator Fill()
+    //private IEnumerator Fill()
+    //{
+    //    IsFilling = true;
+    //    if (Services.FolderManager.UnpickedFolders.Contains(this))
+    //    {
+    //        Services.FolderManager.UnpickedFolders.Remove(this);
+    //    }
+    //    while (_folderFill.transform.localPosition.y < Services.FolderManager.EndFolderFillY)
+    //    {
+    //        float newLocalY = _folderFill.transform.localPosition.y + Services.FolderManager.FolderFillSpeed * Time.fixedDeltaTime;
+    //        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, newLocalY, 0f));
+    //        yield return new WaitForFixedUpdate();
+    //    }
+    //    _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, Services.FolderManager.EndFolderFillY, 0f));
+    //    IsFilling = false;
+    //    Services.FolderManager.onFolderFill?.Invoke(this);
+    //    yield break;
+    //}
+
+    //private IEnumerator Unfill()
+    //{
+    //    StopCoroutine(FillCoroutine);
+    //    IsFilling = false;
+    //    while (_folderFill.transform.localPosition.y > Services.FolderManager.StartFolderFillY)
+    //    {
+    //        float newLocalY = _folderFill.transform.localPosition.y - Services.FolderManager.FolderUnfillSpeed * Time.fixedDeltaTime;
+    //        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, newLocalY, 0f));
+    //        yield return new WaitForFixedUpdate();
+    //    }
+    //    _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(_folderFill.transform.position.x, Services.FolderManager.StartFolderFillY, _folderFill.transform.position.z));
+    //    if (!Services.FolderManager.UnpickedFolders.Contains(this))
+    //    {
+    //        Services.FolderManager.UnpickedFolders.Add(this);
+    //    }
+    //    yield break;
+    //}
+
+    private void FillFunction()
     {
+        _startedFilling = true;
         IsFilling = true;
         if (Services.FolderManager.UnpickedFolders.Contains(this))
         {
             Services.FolderManager.UnpickedFolders.Remove(this);
         }
-        while (_folderFill.transform.localPosition.y < Services.FolderManager.EndFolderFillY)
+        if (_folderFill.transform.localPosition.y < Services.FolderManager.EndFolderFillY)
         {
             float newLocalY = _folderFill.transform.localPosition.y + Services.FolderManager.FolderFillSpeed * Time.fixedDeltaTime;
             _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, newLocalY, 0f));
-            yield return new WaitForFixedUpdate();
         }
-        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, Services.FolderManager.EndFolderFillY, 0f));
-        IsFilling = false;
-        Services.FolderManager.onFolderFill?.Invoke(this);
-        yield break;
+        else
+        {
+            _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, Services.FolderManager.EndFolderFillY, 0f));
+            IsFilling = false;
+            Services.FolderManager.onFolderFill?.Invoke(this);
+        }
     }
 
-    private IEnumerator Unfill()
+    private void Update()
     {
-        StopCoroutine(FillCoroutine);
-        IsFilling = false;
-        while (_folderFill.transform.localPosition.y > Services.FolderManager.StartFolderFillY)
+        if (!IsInfected)
         {
-            float newLocalY = _folderFill.transform.localPosition.y - Services.FolderManager.FolderUnfillSpeed * Time.fixedDeltaTime;
-            _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, newLocalY, 0f));
-            yield return new WaitForFixedUpdate();
+            if (_startedFilling)
+            {
+                if (!IsFilling)
+                {
+                    if (_folderFill.transform.localPosition.y > Services.FolderManager.StartFolderFillY)
+                    {
+                        float newLocalY = _folderFill.transform.localPosition.y - Services.FolderManager.FolderUnfillSpeed * Time.fixedDeltaTime;
+                        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(0f, newLocalY, 0f));
+                    }
+                    else
+                    {
+                        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(_folderFill.transform.position.x, Services.FolderManager.StartFolderFillY, _folderFill.transform.position.z));
+                        if (!Services.FolderManager.UnpickedFolders.Contains(this))
+                        {
+                            Services.FolderManager.UnpickedFolders.Add(this);
+                        }
+                        _startedFilling = false;
+                    }
+                }
+            }
         }
-        _folderFill.transform.position = _folderFill.transform.parent.TransformPoint(new Vector3(_folderFill.transform.position.x, Services.FolderManager.StartFolderFillY, _folderFill.transform.position.z));
-        if (!Services.FolderManager.UnpickedFolders.Contains(this))
-        {
-            Services.FolderManager.UnpickedFolders.Add(this);
-        }
-        yield break;
     }
 
     //when the player collides with a folder
@@ -141,10 +191,10 @@ public class Folder : CellOccupant
             }
 
             //Debug.Log("Start Fill");
-            if (!IsInfected)
-            {
-                StartCoroutine(FillCoroutine);
-            }
+            //if (!IsInfected)
+            //{
+            //    StartCoroutine(FillCoroutine);
+            //}
         }
     }
 
@@ -155,11 +205,11 @@ public class Folder : CellOccupant
         {
 
             col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            StartCoroutine(UnfillCoroutine);
+            //StartCoroutine(UnfillCoroutine);
             //Debug.Log("Leave Fill");
             if (!IsInfected && IsFilling)
             {
-
+                IsFilling = false;
             }
         }
     }
@@ -169,6 +219,13 @@ public class Folder : CellOccupant
         if (col.gameObject.CompareTag("Player"))
         {
             col.gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+
+            //this is the new stuff
+            if (!IsInfected)
+            {
+                FillFunction();
+            }
+
             foreach (GameObject patrol in GameObject.FindGameObjectsWithTag("Patroler"))
             {
                 if (patrol.name == "PatrolDefender")
