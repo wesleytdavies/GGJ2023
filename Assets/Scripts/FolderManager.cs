@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -97,9 +98,18 @@ public class FolderManager : MonoBehaviour
         //onFolderFill -= Cure;
     }
 
+    [SerializeField] private float _minimumCureDistance;
+
     public void AssignCureFolder(Firewall firewall)
     {
         Folder cureFolder = UnpickedFolders.PickRandom();
+        if(UnpickedFolders.Exists(x=> Vector3.Distance(x.transform.position, firewall.transform.position) >= _minimumCureDistance))
+        {
+            while (Vector3.Distance(cureFolder.transform.position, firewall.transform.position) < _minimumCureDistance)
+            {
+                cureFolder = UnpickedFolders.PickRandom();
+            }
+        }
         UnpickedFolders.Remove(cureFolder);
         cureFolder.isCureFolder = true;
         cureFolder.CureIcon.enabled = true;
