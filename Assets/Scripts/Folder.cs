@@ -205,7 +205,7 @@ public class Folder : CellOccupant
 
             if (!IsInfected)
             {
-                //Services.AudioManager.PlayFillFolder();
+                Services.AudioManager.PlayFillFolder();
             }
         }
     }
@@ -222,7 +222,7 @@ public class Folder : CellOccupant
             if (!IsInfected && IsFilling)
             {
                 IsFilling = false;
-                //Services.AudioManager.PlayUnfillFolder();
+                Services.AudioManager.PlayUnfillFolder();
             }
         }
     }

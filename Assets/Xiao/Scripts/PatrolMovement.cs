@@ -38,6 +38,7 @@ public class PatrolMovement : MonoBehaviour
             _destination = GameObject.Find("VirusPlayer").transform.position;
             spriteRenderer.enabled = true;
             Debug.Log("amactive");
+            Services.AudioManager.isExclam = true;
         }
 
         if (!isAlarmed)
@@ -48,6 +49,7 @@ public class PatrolMovement : MonoBehaviour
                spriteRenderer.enabled = false;
                 randomNumber = Random.Range(1, _folders.Count - 1);
                 _destination = new Vector2(_folders[randomNumber].gameObject.transform.position.x, _folders[randomNumber].gameObject.transform.position.y);
+                Services.AudioManager.isExclam = false;
             }
         }
 
