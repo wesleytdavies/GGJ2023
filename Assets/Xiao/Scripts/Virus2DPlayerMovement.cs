@@ -21,6 +21,9 @@ public class Virus2DPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float playerX = Mathf.Clamp(transform.position.x, -24f, 24f);
+        float playerY = Mathf.Clamp(transform.position.y, -14f, 14f);
+        transform.position=new Vector3(playerX, playerY, transform.position.z);
         _movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetAxis("Horizontal") <= 0)
